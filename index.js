@@ -1,5 +1,5 @@
 // Handle new image uploading on canvas
-function handleImage(e){
+function uploadImage(e){
 	var reader = new FileReader();
 	reader.onload = function(event){
     	img.onload = function(){
@@ -31,8 +31,8 @@ function downloadCanvas(){
 
 // Revert to original loaded image...
 function original() {
-	canvas.height = img.height;
-	canvas.width = img.width;
+	//canvas.height = img.height;
+	//canvas.width = img.width;
 	ctx.drawImage(img, 0, 0, width, height);
 }
 
@@ -66,7 +66,7 @@ async function loadWasm() {
 }
 
 function originalImageData() {
-	original();
+	//original();
 	return ctx.getImageData(0, 0, width, height);
 }
 
@@ -94,12 +94,14 @@ let [width, height] = [img.width, img.height];
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
+canvas.height = height;
+canvas.width = width;
 
 img.onload = () => original();
 
 // Add image uploading handling
 var imageLoader = document.getElementById('imageLoader');
-imageLoader.addEventListener('change', handleImage, false);
+imageLoader.addEventListener('change', uploadImage, false);
 
 
 // Filters
@@ -129,3 +131,14 @@ document.querySelector('.action.randomMonochrome').onclick = e => {
   manipulate('randomMonochrome', [80]);
 }
 
+// Manipulations
+
+document.querySelector('.action.incBrightness').onclick = e => {
+  e.preventDefault();
+  manipulate('incBrightness', [4]);
+}
+
+document.querySelector('.action.decBrightness').onclick = e => {
+  e.preventDefault();
+  manipulate('decBrightness', [4]);
+}

@@ -56,3 +56,35 @@ export function randomMonochrome(width: i32, height: i32, offset: u8): void {
     store<u8>(i + 2, mono);
   }
 }
+
+export function incBrightness(width: i32, height: i32, offset: i32): void {
+  for (let i = 0; i < width * height * 4; i += 4 /*rgba*/) {
+    const r = load<u8>(i);
+    const g = load<u8>(i + 1);
+    const b = load<u8>(i + 2);
+
+    const nr = r + offset > 255 ? 255 : r+offset;
+    const ng = g + offset > 255 ? 255 : g+offset;
+    const nb = b + offset > 255 ? 255 : b+offset;
+
+    store<u8>(i,     nr);
+    store<u8>(i + 1, ng);
+    store<u8>(i + 2, nb);
+  }
+}
+
+export function decBrightness(width: i32, height: i32, offset: i32): void {
+  for (let i = 0; i < width * height * 4; i += 4 /*rgba*/) {
+    const r = load<u8>(i);
+    const g = load<u8>(i + 1);
+    const b = load<u8>(i + 2);
+
+    const nr = r - offset < 0 ? 0 : r-offset;
+    const ng = g - offset < 0 ? 0 : g-offset;
+    const nb = b - offset < 0 ? 0 : b-offset;
+
+    store<u8>(i,     nr);
+    store<u8>(i + 1, ng);
+    store<u8>(i + 2, nb);
+  }
+}

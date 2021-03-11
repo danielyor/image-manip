@@ -4,11 +4,22 @@
 </head>
 <body>
 
-<input type="file" id="imageLoader" name="imageLoader">
-<br>
+<input type="file" id="imageLoader" name="imageLoader"><br>
 <button onclick="downloadCanvas()">Download Image</button>
-<br>
+<button class="action original">Reset</button>
 
+<h2>Apply filter</h2>
+<button class="action invert">Invert</button>
+<button class="action grayscale">Grayscale</button>
+<button class="action basicMonochrome">basic monochrome</button>
+<button class="action randomMonochrome">random monochrome</button>
+
+
+<h2>Color manipulations</h2>
+<button class="action incBrightness">Increase Brightness</button>
+<button class="action decBrightness">Decrease Brightness</button>
+
+<!--
 <ul>
   <li><a href="#" class="action original">original</a></li>
   <li><a href="#" class="action invert">invert</a></li>
@@ -16,8 +27,10 @@
   <li><a href="#" class="action basicMonochrome">basic monochrome</a></li>
   <li><a href="#" class="action randomMonochrome">random monochrome</a></li>
 </ul>
+-->
 
-<canvas id="canvas" width="500" height="500" style="border: 3px solid black"></canvas>
+<br>
+<canvas id="canvas" style="border: 3px solid black"></canvas>
 
 <script src="index.js"></script>
 
