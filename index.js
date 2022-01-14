@@ -31,8 +31,9 @@ function downloadCanvas(){
 
 // Revert to original loaded image...
 function original() {
-	//canvas.height = img.height;
-	//canvas.width = img.width;
+	[width, height] = [img.width, img.height];
+    canvas.width = width;
+    canvas.height = height;
 	ctx.drawImage(img, 0, 0, width, height);
 }
 
@@ -88,14 +89,12 @@ function writeImageData(imageData, bytes) {
 
 // Load default image and canvas
 let img = new Image();
-img.src = './default.jpg';
 img.crossOrigin = 'anonymous';
-let [width, height] = [img.width, img.height];
+img.src = './default.jpg';
+let width, height;
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-canvas.height = height;
-canvas.width = width;
 
 img.onload = () => original();
 
