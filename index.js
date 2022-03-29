@@ -47,8 +47,9 @@ async function manipulate(action, params = []) {
 }
 
 async function loadWasm() {
-	const arraySize = (width * height * 4) >>> 0;
-	const nPages = ((arraySize + 0xffff) & ~0xffff) >>> 16;
+	const arraySize = (width * height * 4);
+	const pageSize = 1 << 16;
+	const nPages = Math.ceil(arraySize / pageSize);
 	const memory = new WebAssembly.Memory({ initial: nPages });
 
 	const wasm = await WebAssembly.instantiateStreaming(fetch('./build/optimized.wasm'), {
