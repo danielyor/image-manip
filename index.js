@@ -97,6 +97,9 @@ img.onload = () => original();
 const imageLoader = document.getElementById('imageLoader');
 imageLoader.addEventListener('change', uploadImage, false);
 
+const imageDownloader = document.getElementById('imageDownloader');
+imageDownloader.onclick = () => downloadCanvas();
+
 // Filters
 document.querySelector('.action.original').onclick = e => {
 	e.preventDefault();
