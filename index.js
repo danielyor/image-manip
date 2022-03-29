@@ -1,6 +1,6 @@
 // Handle new image uploading on canvas
 function uploadImage(e){
-	var reader = new FileReader();
+	const reader = new FileReader();
 	reader.onload = function(event){
     	img.onload = function(){
 			[width, height] = [img.width, img.height];
@@ -16,10 +16,10 @@ function uploadImage(e){
 // Add download button
 function downloadCanvas(){  
     // get canvas data  
-    var image = canvas.toDataURL();  
+    const image = canvas.toDataURL();  
   
     // create temporary link  
-    var tmpLink = document.createElement( 'a' );  
+    const tmpLink = document.createElement( 'a' );  
     tmpLink.download = 'image.png'; // set the name of the download file 
     tmpLink.href = image;  
   
@@ -88,10 +88,10 @@ function writeImageData(imageData, bytes) {
 
 
 // Load default image and canvas
-let img = new Image();
+let width, height;
+const img = new Image();
 img.crossOrigin = 'anonymous';
 img.src = './default.jpg';
-let width, height;
 
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
@@ -99,7 +99,7 @@ const ctx = canvas.getContext('2d');
 img.onload = () => original();
 
 // Add image uploading handling
-var imageLoader = document.getElementById('imageLoader');
+const imageLoader = document.getElementById('imageLoader');
 imageLoader.addEventListener('change', uploadImage, false);
 
 
