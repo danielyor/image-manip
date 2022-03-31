@@ -132,3 +132,11 @@ document.querySelector('.action.decBrightness').onclick = e => {
 	e.preventDefault();
 	manipulate('decBrightness', [4]);
 }
+document.querySelector('.action.incSaturation').onclick = e => {
+	e.preventDefault();
+	manipulate('saturation', [1]);
+}
+document.querySelector('.action.decSaturation').onclick = e => {
+	e.preventDefault();
+	manipulate('saturation', [-1]);
+}

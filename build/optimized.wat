@@ -20,6 +20,7 @@
  (export "randomMonochrome" (func $assembly/index/randomMonochrome))
  (export "incBrightness" (func $assembly/index/incBrightness))
  (export "decBrightness" (func $assembly/index/decBrightness))
+ (export "saturation" (func $assembly/index/saturation))
  (export "memory" (memory $0))
  (func $assembly/index/invert (param $0 i32) (param $1 i32)
   (local $2 i32)
@@ -512,6 +513,342 @@
     i32.const 4
     i32.add
     local.set $3
+    br $for-loop|0
+   end
+  end
+ )
+ (func $assembly/index/saturation (param $0 i32) (param $1 i32) (param $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  (local $8 i32)
+  (local $9 i32)
+  (local $10 i32)
+  (local $11 i32)
+  (local $12 i32)
+  (local $13 f64)
+  (local $14 f64)
+  (local $15 f64)
+  (local $16 f64)
+  (local $17 i32)
+  local.get $0
+  local.get $1
+  i32.mul
+  i32.const 2
+  i32.shl
+  local.set $17
+  loop $for-loop|0
+   local.get $12
+   local.get $17
+   i32.lt_s
+   if
+    local.get $12
+    i32.const 2
+    i32.add
+    local.tee $0
+    i32.load8_u
+    local.set $4
+    local.get $12
+    local.set $10
+    i32.const -1
+    local.set $6
+    i32.const -1
+    local.set $3
+    i32.const -1
+    local.set $5
+    i32.const -1
+    local.set $11
+    i32.const -1
+    local.set $9
+    local.get $12
+    i32.load8_u
+    local.tee $7
+    local.get $12
+    i32.const 1
+    i32.add
+    local.tee $1
+    i32.load8_u
+    local.tee $8
+    i32.gt_u
+    if (result i32)
+     local.get $4
+     local.get $7
+     i32.lt_u
+     if (result i32)
+      local.get $10
+      local.set $11
+      local.get $7
+      local.set $9
+      local.get $4
+      local.get $8
+      i32.gt_u
+      if (result i32)
+       local.get $4
+       local.set $5
+       local.get $1
+       local.set $6
+       local.get $8
+       local.set $3
+       local.get $0
+      else
+       local.get $8
+       local.set $5
+       local.get $0
+       local.set $6
+       local.get $4
+       local.set $3
+       local.get $1
+      end
+     else
+      local.get $0
+      local.set $11
+      local.get $4
+      local.set $9
+      local.get $7
+      local.set $5
+      local.get $1
+      local.set $6
+      local.get $8
+      local.set $3
+      local.get $10
+     end
+    else
+     local.get $7
+     local.get $8
+     i32.lt_u
+     if (result i32)
+      local.get $4
+      local.get $8
+      i32.lt_u
+      if (result i32)
+       local.get $1
+       local.set $11
+       local.get $8
+       local.set $9
+       local.get $4
+       local.get $7
+       i32.gt_u
+       if (result i32)
+        local.get $4
+        local.set $5
+        local.get $10
+        local.set $6
+        local.get $7
+        local.set $3
+        local.get $0
+       else
+        local.get $7
+        local.set $5
+        local.get $0
+        local.set $6
+        local.get $4
+        local.set $3
+        local.get $10
+       end
+      else
+       local.get $0
+       local.set $11
+       local.get $4
+       local.set $9
+       local.get $8
+       local.set $5
+       local.get $10
+       local.set $6
+       local.get $7
+       local.set $3
+       local.get $1
+      end
+     else
+      i32.const -1
+     end
+    end
+    local.set $0
+    local.get $3
+    local.get $9
+    i32.ne
+    if
+     f64.const 255
+     local.get $7
+     f64.convert_i32_u
+     local.get $8
+     f64.convert_i32_u
+     f64.max
+     local.get $4
+     f64.convert_i32_u
+     f64.max
+     local.get $7
+     f64.convert_i32_u
+     local.get $8
+     f64.convert_i32_u
+     f64.min
+     local.get $4
+     f64.convert_i32_u
+     f64.min
+     f64.add
+     f64.const 0.5
+     f64.mul
+     f64.const 255
+     f64.div
+     f64.const 255
+     f64.mul
+     local.tee $14
+     f64.sub
+     local.get $14
+     f64.min
+     local.tee $13
+     f64.const 0.5
+     f64.add
+     f64.floor
+     local.get $13
+     f64.copysign
+     local.set $13
+     local.get $2
+     i32.const 1
+     i32.eq
+     if (result i32)
+      local.get $14
+      local.get $5
+      f64.convert_i32_s
+      f64.sub
+      local.get $14
+      local.get $9
+      f64.convert_i32_s
+      f64.sub
+      f64.div
+      local.set $16
+      local.get $9
+      f64.convert_i32_s
+      local.get $13
+      f64.const 150
+      f64.div
+      f64.const 255
+      local.get $9
+      f64.convert_i32_s
+      f64.sub
+      local.get $3
+      f64.convert_i32_s
+      f64.min
+      f64.min
+      local.tee $13
+      f64.add
+      local.set $15
+      local.get $3
+      f64.convert_i32_s
+      local.get $13
+      f64.sub
+      local.tee $13
+      f64.const 0.5
+      f64.add
+      f64.floor
+      local.get $13
+      f64.copysign
+      i32.trunc_f64_s
+      local.set $3
+      local.get $14
+      local.get $15
+      f64.const 0.5
+      f64.add
+      f64.floor
+      local.get $15
+      f64.copysign
+      i32.trunc_f64_s
+      local.tee $9
+      f64.convert_i32_s
+      local.get $14
+      f64.sub
+      local.get $16
+      f64.mul
+      f64.add
+      local.tee $13
+      f64.const 0.5
+      f64.add
+      f64.floor
+      local.get $13
+      f64.copysign
+      i32.trunc_f64_s
+     else
+      local.get $2
+      i32.const -1
+      i32.eq
+      if (result i32)
+       local.get $14
+       local.get $5
+       f64.convert_i32_s
+       f64.sub
+       local.get $14
+       local.get $9
+       f64.convert_i32_s
+       f64.sub
+       f64.div
+       local.set $16
+       local.get $9
+       f64.convert_i32_s
+       local.get $13
+       f64.const 150
+       f64.div
+       local.get $14
+       local.get $3
+       f64.convert_i32_s
+       f64.sub
+       f64.min
+       local.tee $13
+       f64.sub
+       local.set $15
+       local.get $3
+       f64.convert_i32_s
+       local.get $13
+       f64.add
+       local.tee $13
+       f64.const 0.5
+       f64.add
+       f64.floor
+       local.get $13
+       f64.copysign
+       i32.trunc_f64_s
+       local.set $3
+       local.get $14
+       local.get $15
+       f64.const 0.5
+       f64.add
+       f64.floor
+       local.get $15
+       f64.copysign
+       i32.trunc_f64_s
+       local.tee $9
+       f64.convert_i32_s
+       local.get $14
+       f64.sub
+       local.get $16
+       f64.mul
+       f64.add
+       local.tee $13
+       f64.const 0.5
+       f64.add
+       f64.floor
+       local.get $13
+       f64.copysign
+       i32.trunc_f64_s
+      else
+       local.get $5
+      end
+     end
+     local.set $5
+     local.get $11
+     local.get $9
+     i32.store8
+     local.get $0
+     local.get $5
+     i32.store8
+     local.get $6
+     local.get $3
+     i32.store8
+    end
+    local.get $12
+    i32.const 4
+    i32.add
+    local.set $12
     br $for-loop|0
    end
   end
