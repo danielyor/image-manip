@@ -1,10 +1,12 @@
+import koaBodyParser from 'koa-bodyparser'
+
 class BodyParser {
   description () {
     return 'Parses the request body, making `ctx.request.body` available to downstream middleware.'
   }
   middleware () {
-    return require('koa-bodyparser')()
+    return koaBodyParser()
   }
 }
 
-module.exports = BodyParser
+export default BodyParser

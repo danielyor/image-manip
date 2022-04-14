@@ -1,7 +1,8 @@
-[![view on npm](https://img.shields.io/npm/v/lws-body-parser.svg)](https://www.npmjs.org/package/lws-body-parser)
-[![npm module downloads](https://img.shields.io/npm/dt/lws-body-parser.svg)](https://www.npmjs.org/package/lws-body-parser)
-[![Build Status](https://travis-ci.org/lwsjs/body-parser.svg?branch=master)](https://travis-ci.org/lwsjs/body-parser)
-[![Dependency Status](https://badgen.net/david/dep/lwsjs/body-parser)](https://david-dm.org/lwsjs/body-parser)
+[![view on npm](https://badgen.net/npm/v/lws-body-parser)](https://www.npmjs.org/package/lws-body-parser)
+[![npm module downloads](https://badgen.net/npm/dt/lws-body-parser)](https://www.npmjs.org/package/lws-body-parser)
+[![Gihub repo dependents](https://badgen.net/github/dependents-repo/lwsjs/body-parser)](https://github.com/lwsjs/body-parser/network/dependents?dependent_type=REPOSITORY)
+[![Gihub package dependents](https://badgen.net/github/dependents-pkg/lwsjs/body-parser)](https://github.com/lwsjs/body-parser/network/dependents?dependent_type=PACKAGE)
+[![Node.js CI](https://github.com/lwsjs/body-parser/actions/workflows/node.js.yml/badge.svg)](https://github.com/lwsjs/body-parser/actions/workflows/node.js.yml)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/feross/standard)
 
 # lws-body-parser
@@ -10,4 +11,4 @@ Body parsing middleware for lws, wrapping [koa-bodyparser](https://github.com/ko
 
 * * *
 
-&copy; 2016-20 Lloyd Brookes \<75pound@gmail.com\>.
+&copy; 2016-22 Lloyd Brookes \<75pound@gmail.com\>.

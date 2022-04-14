@@ -1,11 +1,13 @@
+import koaRange from 'koa-range'
+
 class Range {
   description () {
     return 'Support for HTTP Range Requests.'
   }
 
   middleware () {
-    return require('koa-range')
+    return koaRange
   }
 }
 
-module.exports = Range
+export default Range
