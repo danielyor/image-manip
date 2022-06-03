@@ -47,12 +47,12 @@ async function manipulate(action, params = []) {
 }
 
 async function loadWasm() {
-	const arraySize = (width * height * 4);
+	const arraySize = 4000 * 3000 * 4//(width * height * 4);
 	const pageSize = 1 << 16;
 	const nPages = Math.ceil(arraySize / pageSize);
 	const memory = new WebAssembly.Memory({ initial: nPages });
 
-	const wasm = await WebAssembly.instantiateStreaming(fetch('./build/optimized.wasm'), {
+	const wasm = await WebAssembly.instantiateStreaming(fetch('./build/untouched.wasm'), {
 		env: {
 			memory, // npm run asbuild:optimized -- --importMemory
 			abort: (_msg, _file, line, column) => console.error(`Abort at ${line}:${column}`),
