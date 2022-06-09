@@ -236,3 +236,17 @@ export function mirror(width: i32, height: i32): void {
   */
 
 }
+
+export function transform(width: i32, height: i32): void {
+
+  for (let y = 0; y < height; y++) {
+    for (let x1 = 0,x2 = width-x1-1; x1 < x2 ; x1++,x2--) {
+      let pos1 = (y*width+x1)*4;
+      let pos2 = (y*width+x2)*4;
+
+      let t = load<u32>(pos1);
+      store<u32>(pos1,load<u32>(pos2));
+      store<u32>(pos2,t);
+    }
+  }
+}

@@ -18,6 +18,7 @@
  (export "decBrightness" (func $assembly/index/decBrightness))
  (export "saturation" (func $assembly/index/saturation))
  (export "mirror" (func $assembly/index/mirror))
+ (export "transform" (func $assembly/index/transform))
  (export "memory" (memory $0))
  (func $assembly/index/invert (param $0 i32) (param $1 i32)
   (local $2 i32)
@@ -889,5 +890,70 @@
  )
  (func $assembly/index/mirror (param $0 i32) (param $1 i32)
   nop
+ )
+ (func $assembly/index/transform (param $0 i32) (param $1 i32)
+  (local $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  (local $6 i32)
+  (local $7 i32)
+  loop $for-loop|0
+   local.get $1
+   local.get $4
+   i32.gt_s
+   if
+    i32.const 0
+    local.set $2
+    local.get $0
+    i32.const 1
+    i32.sub
+    local.set $3
+    loop $for-loop|1
+     local.get $2
+     local.get $3
+     i32.lt_s
+     if
+      local.get $2
+      local.get $0
+      local.get $4
+      i32.mul
+      local.tee $6
+      i32.add
+      i32.const 2
+      i32.shl
+      local.tee $7
+      i32.load
+      local.set $5
+      local.get $7
+      local.get $3
+      local.get $6
+      i32.add
+      i32.const 2
+      i32.shl
+      local.tee $6
+      i32.load
+      i32.store
+      local.get $6
+      local.get $5
+      i32.store
+      local.get $2
+      i32.const 1
+      i32.add
+      local.set $2
+      local.get $3
+      i32.const 1
+      i32.sub
+      local.set $3
+      br $for-loop|1
+     end
+    end
+    local.get $4
+    i32.const 1
+    i32.add
+    local.set $4
+    br $for-loop|0
+   end
+  end
  )
 )

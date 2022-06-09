@@ -108,7 +108,7 @@ document.querySelector('.action.original').onclick = e => {
 }
 document.querySelector('.action.invert').onclick = e => {
 	e.preventDefault();
-	manipulate('invert');
+	manipulate('transform');
 }
 document.querySelector('.action.grayscale').onclick = e => {
 	e.preventDefault();

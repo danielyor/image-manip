@@ -13,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@assemblyscript/loader": "^0.20.4"
+    "@assemblyscript/loader": "^0.20.4",
+    "tw-elements": "^1.0.0-alpha12"
   },
   "devDependencies": {
     "assemblyscript": "^0.20.4",
-    "local-web-server": "^5.2.0"
+    "local-web-server": "^5.2.0",
+    "tailwindcss": "^3.1.0"
   }
 }
