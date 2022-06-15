@@ -47,7 +47,7 @@ async function manipulate(action, params = []) {
 }
 
 async function loadWasm() {
-	const arraySize = 4000 * 3000 * 4//(width * height * 4);
+	const arraySize = width * height * 4;
 	const pageSize = 1 << 16;
 	const nPages = Math.ceil(arraySize / pageSize);
 	const memory = new WebAssembly.Memory({ initial: nPages });
@@ -106,11 +106,11 @@ document.querySelector('.action.original').onclick = e => {
 	e.preventDefault();
 	original();
 }
-document.querySelector('.action.invert').onclick = e => {
+document.querySelector('.action.invertImg').onclick = e => {
 	e.preventDefault();
-	manipulate('transform');
+	manipulate('invert');
 }
-document.querySelector('.action.grayscale').onclick = e => {
+document.querySelector('.action.grayscaleImg').onclick = e => {
 	e.preventDefault();
 	manipulate('grayscale');
 }
@@ -121,6 +121,10 @@ document.querySelector('.action.basicMonochrome').onclick = e => {
 document.querySelector('.action.randomMonochrome').onclick = e => {
 	e.preventDefault();
 	manipulate('randomMonochrome', [80]);
+}
+document.querySelector('.action.mirror').onclick = e => {
+	e.preventDefault();
+	manipulate('mirror');
 }
 
 // Manipulations

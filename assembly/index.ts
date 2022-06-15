@@ -201,44 +201,6 @@ export function saturation(width: i32, height: i32, change: i32): void {
 }
 
 export function mirror(width: i32, height: i32): void {
-  /* APPROACH:
-  1. Start with a loop: Loop over every row of pixels
-  2. Load the rgb pairs from the buffer into an array
-  3. Reverse and store the array pairs into the buffer
-  */
-
-  /* Declare array, static method - https://www.assemblyscript.org/stdlib/staticarray.html
-  let pixelArray = new StaticArray<Array<u8>>(width);
-  for (let i = 0; i < width; i++) {
-    pixelArray[i] = new StaticArray<u8>(3); //rgb
-  }
-  // pixelArray[0][0] = <u8>230;
-  */
-
-  /* Declare array, push method - https://www.assemblyscript.org/stdlib/array.html
-  let pixelArray = new Array<Array<u8>>(0)
-  // pixelArray.push([<u8>230, <u8>220, <u8>200])
-  */
-
-  /*
-  for (let i = 0; i < width * height * 4; i += 4) { // whole thing, aka "for each pixel"
-    if (i%(width*4) == 0) { // for each line
-      let nextLineAt = i + width * 4;
-      for (let j = width; j < nextLineAt; i += 4 ) { // lines
-        const r = load<u8>(j);
-        const g = load<u8>(j + 1);
-        const b = load<u8>(j + 2);
-
-        // ...
-      }
-    }
-  }
-  */
-
-}
-
-export function transform(width: i32, height: i32): void {
-
   for (let y = 0; y < height; y++) {
     for (let x1 = 0,x2 = width-x1-1; x1 < x2 ; x1++,x2--) {
       let pos1 = (y*width+x1)*4;

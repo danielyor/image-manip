@@ -11,8 +11,7 @@
 </head>
 
 <body>
-
-  <!-- This example requires Tailwind CSS v2.0+ -->
+  
   <div class="relative bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -30,24 +29,25 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex justify-center">
         <div class="mb-3 mt-6 w-96">
-          <label for="imageLoader" class="form-label inline-block mb-2 text-gray-700">Επιλέξτε εικόνα</label>
+          <label for="imageLoader" class="form-label inline-block mb-2 text-gray-700">Upload an image:</label>
           <input class="form-control
-        block
-        w-full
-        px-2
-        py-1.5
-        text-xl
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="imageLoader" type="file">
+            block
+            w-full
+            px-2
+            py-1.5
+            text-xl
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="imageLoader" type="file">
         </div>
       </div>
+
       <div class="flex space-x-2 justify-center">
         <div>
           <button id="imageDownloader" type="button"
@@ -62,42 +62,33 @@
           </button>
         </div>
         <div>
-          <button type="button"
-            class="action original inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Reset
-            Image</button>
+          <button type="button" class="action original inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+            Reset Image</button>
+        </div>
+      </div>
+      
+      <div class="flex items-center justify-center my-3">
+        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg" role="group">
+          <button type="button" class="action invertImg rounded-l inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Invert</button>
+          <button type="button" class="action grayscaleImg inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Grayscale</button>
+          <button type="button" class="action basicMonochrome inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Basic Monochrome</button>
+          <button type="button" class="action randomMonochrome inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Random Monochrome</button>
+          <button type="button" class="action mirror rounded-r inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Mirror</button>
         </div>
       </div>
 
+      <div class="flex items-center justify-center my-1">
+        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg mx-1" role="group">
+          <button type="button" class="action incBrightness rounded-l inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Increase Brightness</button>
+          <button type="button" class="action decBrightness rounded-r inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Decrease Brightness</button>
+        </div>
+        <div class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg mx-1" role="group">
+          <button type="button" class="action incSaturation rounded-l inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Increase Saturation</button>
+          <button type="button" class="action decSaturation rounded-r inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-0 active:bg-blue-800 transition duration-150 ease-in-out">Decrease Saturation</button>
+        </div>
+      </div>
 
-      <!-- <input type="file" id="imageLoader" name="imageLoader"><br> -->
-      <!-- <button id="imageDownloader">Download Image</button> -->
-      <!-- <button class="action original">Reset</button> -->
-
-      <h2>Apply filter</h2>
-      <button class="action invert">Invert</button>
-      <button class="action grayscale">Grayscale</button>
-      <button class="action basicMonochrome">basic monochrome</button>
-      <button class="action randomMonochrome">random monochrome</button>
-
-
-      <h2>Color manipulations</h2>
-      <button class="action incBrightness">Increase Brightness</button>
-      <button class="action decBrightness">Decrease Brightness</button>
-      <button class="action incSaturation">Increase Saturation</button>
-      <button class="action decSaturation">Decrease Saturation</button>
-
-      <!--
-    <ul>
-      <li><a href="#" class="action original">original</a></li>
-      <li><a href="#" class="action invert">invert</a></li>
-      <li><a href="#" class="action grayscale">grayscale</a></li>
-      <li><a href="#" class="action basicMonochrome">basic monochrome</a></li>
-      <li><a href="#" class="action randomMonochrome">random monochrome</a></li>
-    </ul>
-    -->
-
-      <br>
-      <canvas id="canvas" class="max-w-full my-4" style="border: 3px solid black"></canvas>
+      <canvas id="canvas" class="max-w-full border-2 border-blue-600 shadow-lg rounded-lg my-4"></canvas>
 
     </div>
   </div>

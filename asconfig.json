@@ -16,7 +16,6 @@
   },
   "options": {
     "sourceMap": true,
-    "importMemory": true,
-    "memoryBase": 48000000
+    "importMemory": true
   }
 }
