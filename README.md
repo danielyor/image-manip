@@ -14,4 +14,6 @@ Rebuild the WASM files after every change in index.ts
 
 You can choose between optimized and untouched WASM in index.js, during the WASM instantiation process. See also asconfig.json for [compiler](https://www.assemblyscript.org/compiler.html) options.
 
-## 
+---
+
+Default photo taken from [Unsplash](https://unsplash.com/photos/zRZAnttNo7o).
